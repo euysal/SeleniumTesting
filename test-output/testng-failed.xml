@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="SeleniumFinal.TekArchSeleniumExam.AutomationScripts">
+      <class name="AutomationScripts">
         <methods>
-          <include name="Login_To_SalesForce"/>
+          <include name="testId01_A"/>
         </methods>
-      </class> <!-- SeleniumFinal.TekArchSeleniumExam.AutomationScripts -->
+      </class> <!-- AutomationScripts -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

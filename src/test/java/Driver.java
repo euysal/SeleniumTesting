@@ -1,6 +1,3 @@
-package SeleniumFinal.TekArchSeleniumExam;
-/* Run 10 SFDC test cases back to back */
-
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -15,8 +12,7 @@ public class Driver {
 
 	static WebDriver driver;
 	public static void main(String[] args) throws IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-		/*AutomationScripts.Login_To_SalesForce();
-		AutomationScripts.Login_Error_Message();*/
+
 		String dtTablePath = "./excel/TestSuit.xls";
 
 		String[][] recData = ReUsableMethods.readExcel(dtTablePath, "Sheet1");
@@ -50,25 +46,9 @@ public class Driver {
 					driver.quit();
 
 					ReUsableMethods.bw.close();
-				}
-				
-				
-				
+				}				
 			}
-			
-
-
 		}
-		
-
-
-
-
-
-
-		/*Method testCase = AutomationScripts.class.getMethod(tc);
-		testCase.invoke(testCase); */
-
 
 	}
 }
