@@ -575,16 +575,19 @@ public static String dtTablePath = "./excel/TestSuit.xls";
 			enterText(doing,whatdo, "organization what to do ");
 			sleepZzz(1000);
 	
-			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='simplebutton-1036']")));
+			WebElement e = driver.findElement(By.xpath("//*[@id='simplebutton-1036']"));
+			//System.out.println(e.getText());
+			e.click();
+			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.id("simplebutton-1036")));
 			clickObj(buyNow, "Buy Now button");
-			sleepZzz(1000);
+			sleepZzz(500);
 
-			WebElement radioplan=driver.findElement(By.id("StarterPlanId"));
-			boolean status=radioplan.isDisplayed(); System.out.println(status + "  display");
-			radioplan.click();
-			WebElement continueNext=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='frmMain']/div/div[2]/div/main/div[10]/button']")));
+			WebElement starter=driver.findElement(By.id("PRODUCTOPTION/ORG/SOLO"));
+			clickObj(starter, "starter payment plan");   
+			
+			WebElement continueNext=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[@class='.xui-button.xui-button-main']")));
 			clickObj(continueNext, "Continue to billing details");
-			sleepZzz(1000);
+			sleepZzz(500);
 			
 			WebElement street=driver.findElement(By.id("POAddress"));
 			enterText(street, street_data, "Street info"); 
@@ -671,10 +674,16 @@ public static String dtTablePath = "./excel/TestSuit.xls";
 			WebElement doing=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='industrysearchcombofield-1025-inputEl']")));
 			enterText(doing,whatdo, "organization what to do ");	 sleepZzz(500);	
 			
-			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='simplebutton-1036']")));
+			WebElement e = driver.findElement(By.xpath("//*[@id='simplebutton-1036']"));
+			//System.out.println(e.getText());
+			e.click();
+			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.id("simplebutton-1036")));
 			clickObj(buyNow, "Buy Now button");
-			sleepZzz(1000);
-			
+			sleepZzz(2000);
+
+			WebElement standard=driver.findElement(By.id("PRODUCTOPTION/ORG/STANDARD"));
+			clickObj(standard, "standard payment plan");
+	
 			Update_Report("Pass", "last step execution", "Finishes succesfully");
 			bw.close();
        }catch(Exception e){
@@ -737,10 +746,17 @@ public static String dtTablePath = "./excel/TestSuit.xls";
 			WebElement doing=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='industrysearchcombofield-1025-inputEl']")));
 			sleepZzz(500);
 			enterText(doing,whatdo, "organization what to do ");
-					
-			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='simplebutton-1036']")));
-			clickObj(buyNow, "Buy Now button");
 			
+			WebElement e = driver.findElement(By.xpath("//*[@id='simplebutton-1036']"));
+			//System.out.println(e.getText());
+			e.click();
+			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.id("simplebutton-1036")));
+			clickObj(buyNow, "Buy Now button");
+			sleepZzz(1000);
+
+			WebElement premium=driver.findElement(By.id("PRODUCTOPTION/ORG/PRO"));
+			clickObj(premium,"premium payment plan"); 
+
 			Update_Report("Pass", "last step execution", "Finishes succesfully");
 			bw.close();
        }catch(Exception e){
@@ -803,18 +819,16 @@ public static String dtTablePath = "./excel/TestSuit.xls";
 			WebElement doing=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='industrysearchcombofield-1025-inputEl']")));
 			sleepZzz(500);
 			enterText(doing,whatdo, "organization what to do ");
-			sleepZzz(700);
-			// lu-li list
-			WebElement softwareUL= wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='combo-1029-inputEl']"))); 
-			softwareUL.click();
-			driver.findElement(By.xpath(".//*[@id='combo-1029-boundlist-listEl']/ul/li[3]"));
-//			List<WebElement> toolList=softwareUL.findElements(By.tagName("li"));
-//			for (WebElement li : toolList) {
-//			if (li.getText().equals("QuickBooks Desktop")) {
-//			     li.click();
-//			   }
-//			}
-			sleepZzz(500);
+			sleepZzz(1700);
+
+			WebElement table=driver.findElement(By.id("combo-1029-triggerWrap"));
+		    clickObj(table, "table software tool");
+			driver.findElement(By.id("combo-1029-inputCell")).click();
+			sleepZzz(3000);
+
+			WebElement listItem=driver.findElement(By.xpath(".//*[@id='combo-1029-boundlist-listEl']/ul/li[2]"));
+			clickObj(listItem, "software tool from the list");
+			sleepZzz(2000);
 			
 			WebElement buyNow=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='simplebutton-1036']")));
 			clickObj(buyNow, "Buy Now button");
